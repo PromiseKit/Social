@@ -37,8 +37,8 @@ extension SLRequest {
 import ObjectiveC
 
 func swizzle(_ foo: AnyClass, _ from: Selector, isClassMethod: Bool = false, body: () -> Void) {
-    let originalMethod: Method
-    let swizzledMethod: Method
+    let originalMethod: Method!
+    let swizzledMethod: Method!
 
     if isClassMethod {
         originalMethod = class_getClassMethod(foo, from)

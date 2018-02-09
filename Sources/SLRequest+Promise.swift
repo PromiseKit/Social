@@ -22,7 +22,7 @@ extension SLRequest {
      - SeeAlso: `URLDataPromise`
     */
     public func perform() -> Promise<(data: Data, response: HTTPURLResponse)> {
-        return Promise(.pending) { seal in
+        return Promise { seal in
             perform { data, rsp, error in
                 if let data = data, let rsp = rsp {
                     seal.fulfill((data, rsp))

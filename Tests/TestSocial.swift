@@ -18,6 +18,8 @@ class SLRequestTests: XCTestCase {
             rq.perform().done {
                 XCTAssertEqual($0.data, Data())
                 ex.fulfill()
+            }.catch {
+                XCTFail("\($0)")
             }
             waitForExpectations(timeout: 1, handler: nil)
         }
